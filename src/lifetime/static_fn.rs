@@ -37,8 +37,8 @@ mod tests {
 
     #[test]
     fn container2_set_closure() {
-        let mut container = Container2::new("Rust");
         let string = "hello, world!".to_string();
+        let mut container = Container2::new("Rust");
         container.set_callback(|name| {
             println!("{} says: {}", name, string);
         });
