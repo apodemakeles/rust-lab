@@ -38,6 +38,22 @@ mod tests {
         let _ = h2.join();
     }
 
+    #[test]
+    fn just_println_2() {
+        let data = Data { num: 1 };
+        thread::scope(|scope| {
+            let h1 = scope.spawn(|| {
+                data.println();
+            });
+            let h2 = scope.spawn(|| {
+                data.println();
+            });
+            let _ = h1.join();
+            let _ = h2.join();
+        });
+        data.println();
+    }
+
     // cannot pass
     #[cfg(never_compiled)]
     #[test]
